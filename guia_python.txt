@@ -1,0 +1,329 @@
+====================| PYTHON |====================
+
+BIBLIOTECAS -------------------------------------------------
+
+	import string (manipular strings)
+		Template: modelo de string q pode ser substituído por meio de dicionário ($).
+			st = string.Template('$aviso aconteceu em $quando')
+			
+			s = st.substitute({'aviso': 'Falta de eletricidade',
+ 			'quando': '03 de Abril de 2002'})
+
+	Matemática:
+		import math
+		import cmath
+		import decimal
+		import random
+
+	Sistema:
+		import os
+		import glob
+
+	Tempo
+		import time
+		import datetime
+
+
+
+TIPO DE DADO -------------------------------------------------
+
+	int - inteiro
+	float - ponto flutuante
+	none - nulo
+	bool - booleano
+		true 
+		false
+
+
+
+ESTRUTURAS DE DADOS -------------------------------------------------
+
+	lista = [] 
+		append() - adiciona
+
+		remove() - remove por valor do elemento
+
+		pop() - remove por posição
+			lista.pop() - remove o ultimo
+			lista.pop(0) - remove o primeiro
+
+		sort() - ordena
+
+		reverse() - inverte
+
+		len() - mostra o tamanho da lista
+			len(lista)
+
+		#imprime enumerado
+		for i, prog in enumerate(progs):
+ 		   print i + 1, '=>', prog
+
+
+	Tuplas - semelhante a lista mas é imútavel
+		tupla = (a, b, c)
+		tupla_com_um_elemento = (a,)
+
+
+	Dicionários ('dict') 
+		dicionario = {'chave1': 'valor1', 'chave2': 'valor2'}
+
+		del - remove o par chave-valor:
+			del dicionario[chave1]
+
+		Verificar se a chave existe:
+			if 'chave2' in dicionario:
+				print()
+
+		Iterar:
+			if key, valuer in dicionario.items()
+				print(key, value)
+		
+		Obter todas as chaves ou valores (retorna uma lista):
+			keys = dicionario.keys()
+			values = dicionario.values()
+
+		Combinando dois dicionários (usando unpacking):
+			dict1 = {'a': 1, 'b': 2}
+			dict2 = {'c': 3, 'd': 4}
+
+			combined_dict = {**dict1, **dict2}
+	
+	set -
+
+	frozenset - 
+
+
+
+OPERADORES -------------------------------------------------
+
+	ARITMÉTICOS:
+		Soma (+)
+		Subtração (-)
+		Multiplicação (*)
+		Divisão (/)
+		Divisão inteira (//)
+		Módulo (%)
+		Potência (**)
+
+	LÓGICAS:
+		Menor (<)
+		Maior (>)
+		Menor ou igual (<=)
+		Maior ou igual (>=)
+		Igual (==)
+		Diferente (!=)
+
+	OPERAÇÕES BIT A BIT:
+		Deslocamento para esquerda (<<).
+		Deslocamento para direita (>>).
+		E bit-a-bit (&).
+		Ou bit-a-bit (|).
+		Ou exclusivo bit-a-bit (^).
+		Inversão (~)
+
+	BOOLEANOS:
+		or
+		and
+		not
+		is
+		in
+
+	UNPACKING:
+		*: listas e tuplas
+		**: dicionarios
+
+
+
+FUNÇÕES -------------------------------------------------
+
+	Sintaxe:
+		def nome_da_funcao(parametros):
+			return 
+	
+	Ex.:
+		Parâmetro Padrão: caso não tenha um valor fornecido.
+			def padrao(ola = 'mundo'):
+				print(ola)
+
+		Parâmetro Arbitrário: quando não souber quantos parâmetros serão utilizados.
+			
+			Sem Nomeação:
+				def soma(*args):
+					return sum(*args)
+
+				resultado soma(1, 2, 3, 4)
+
+
+			Com Nomeação:
+				def exibir_info(**kwargs):
+					for chave, valor in kwargs.items():
+						print(f"{chave}: {valor}")
+
+
+				exibir_info(nome="Alice", idade=30, cidade="São Paulo")
+				# Saída:
+				# nome: Alice
+				# idade: 30
+				# cidade: São Paulo
+
+		Funções Lambda
+
+
+
+FUNÇÕES BUILTIN -------------------------------------------------
+
+	abs() - retorna valor absoluto
+	oct() - converte para octal
+	hex() - converte para hexadecimal
+	pow() - eleva um número por outro
+	round() - retorna um número real com arredondamento especificado
+	sum(iteravel, inicio (geralmente 0)) - retorna a soma de um iteravel
+	len(iteravel) - retorna tamanho 
+	max(iteravel) - maior valor de um iteravel
+	min(iteravel) - menor valor de um iteravel
+	upper() - converte string para maiuscula
+	lower() - converte string para minuscula
+
+
+
+ENTRADA E SAÍDA -------------------------------------------------
+
+	print()
+		print(var)
+		print("O valor é:", x)
+		print("O valor é:" + x)
+
+	input()
+		Forçar entrada de um tipo específico de dado: 
+			Ex.: tamanho = int(input("Qual o tamanho de sapato?"))
+
+
+
+PLACEHOLDERS -------------------------------------------------
+
+	\n - quebra de linhas
+
+	{:.2f} - especifica quantos números pós linha
+	{:d} - inteiro
+	{:s}
+	{:f} - ponto flutuante 
+	{:e} - notação cientifica
+	{:>10} - alinha a direita com largura de 10 caracteres
+	{:^10} - centraliza
+	{:10} - alinha com espaços em branco na direita
+	{:0>10} preenche com zeros à esquerda baseado no valor máximo de caracter.
+
+	.format()
+		nome = "Alice"
+		idade = 30
+		
+		mensagem = "Olá, meu nome é {} e eu tenho {} anos.".format(nome, idade)
+		print(mensagem)
+
+		--------------------------------------------------
+		mensagem = "O valor de 10/3 é {:.2f}".format(numero)
+
+	F-Strings
+		nome = "Alice"
+		idade = 30
+
+		mensagem = f"Olá, meu nome é {nome} e eu tenho {idade} anos."
+		print(mensagem)
+		--------------------------------------------------
+		mensagem = f"O valor de 10/3 é {numero:.2f}"
+		--------------------------------------------------
+		texto = "Python"
+		print(f"Direita: {texto:>10}")  # Saída: '      Python'
+		print(f"Centro: {texto:^10}")   # Saída: '  Python  '
+		print(f"Esquerda: {texto:<10}")  # Saída: 'Python     '
+		--------------------------------------------------
+		numero = 42
+		print(f"Preenchido com zeros: {numero:0>5}")  # Saída: '00042'
+		--------------------------------------------------
+		from datetime import datetime
+
+		data_atual = datetime.now()
+		print(f"Data e hora: {data_atual:%d/%m/%Y %H:%M:%S}")  # Saída: 'Data e hora: 12/07/2024 15:20:35'
+
+
+
+ESTRUTURAS CONDICIONAIS -------------------------------------------------
+	
+	if x > 0:
+	   print("oi")
+	elif x < 0:
+	   print("hi")
+	else:
+	   print("ohayo")
+	
+	TERNÁRIO:
+	   paridade = "Par" if numero % 2 == 0 else "Ímpar"
+
+
+
+ESTRUTURAS DE REPETIÇÃO -------------------------------------------------
+	
+	comandos: break: encerra o laço; continue: pula iteração atual
+
+	while: quando uma condição for verdadeira.
+		while x < 10:
+		   print(x)
+		   x += 1
+
+	for: repetição contada
+		A função range pode ser chamada de três maneiras diferentes:
+			- range(stop)
+			- range(start, stop)
+			- range(start, stop, step)
+
+		Faixa de valores:
+			for x in (0,1,2,3,4):
+			   print(x)
+
+
+		Função range: range(valor inicial, valor final, passo)
+
+			n = int(input("Qual valor de N?"))
+
+			for i in range(1, n, 1):
+				print(i)
+
+			-----------------------------------
+			for i in range(5):
+			    print(i)
+			-----------------------------------
+			for i in range(5):
+			    print(i)
+			else:
+    			    print("Laço concluído.")
+
+
+		Iterando sobre uma lista:
+			frutas = ["maçã", "banana", "laranja"]
+			for fruta in frutas:
+			    print(fruta)
+
+
+
+MÓDULOS -------------------------------------------------
+
+	- Módulos são arquivos fonte que podem importados para um programa.
+	- Armazenados em arquivos .pyc ou .pyo.
+	- usar 'import'
+
+
+
+PACOTES -------------------------------------------------
+
+	Pacotes são pastas para organizar módulos de forma hierárquica.
+
+	É identificado pelo interpretador por meio de um arquivo com nome de '__init__.py'
+
+
+
+ESCOPOS -------------------------------------------------
+
+	Variáveis locais ofuscam globais em sua definição.
+
+	Em escopo local, a varável global deve ser apontada como 'global'
+
